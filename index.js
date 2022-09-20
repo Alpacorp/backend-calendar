@@ -3,8 +3,6 @@ const cors = require("cors");
 require("dotenv").config();
 const { dbConnection } = require("./database/config");
 
-console.log(process.env.PORT);
-
 // Create express server
 const app = express();
 
@@ -25,6 +23,6 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/events", require("./routes/events"));
 
 // Listen petitions
-app.listen(4000, () => {
-  console.log(`Server on port ${4000}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server on port ${process.env.PORT}`);
 });
